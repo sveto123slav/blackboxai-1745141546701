@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hit The Island Clone</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body, html {
+      margin: 0; padding: 0; height: 100%;
+      font-family: 'Roboto', sans-serif;
+      background: #0f172a; /* dark blue background */
+      overflow: hidden;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    #gameCanvas {
+      background: #1e293b; /* slightly lighter dark */
+      display: block;
+      margin: 0 auto;
+      border-radius: 12px;
+      touch-action: none;
+    }
+    .btn {
+      @apply bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded transition;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4">
+  <h1 class="text-white text-3xl font-bold mb-4 select-none">Hit The Island Clone</h1>
+  <div id="startScreen" class="flex flex-col items-center justify-center h-[640px] w-[360px] bg-gray-900 rounded-lg shadow-lg select-none">
+    <h2 class="text-3xl font-bold text-white mb-6">Hit The Island</h2>
+    <button id="startBtn" class="btn px-8 py-3 text-lg">Start Game</button>
+  </div>
+
+  <canvas id="gameCanvas" width="360" height="640" class="shadow-lg hidden"></canvas>
+  <div id="score" class="text-white text-xl mt-4 select-none hidden">Score: 0</div>
+
+  <div id="gameOverScreen" class="hidden flex flex-col items-center mt-6 space-y-4">
+    <div class="text-red-500 text-4xl font-bold">Game Over</div>
+    <div id="finalScore" class="text-white text-xl"></div>
+    <div id="highScore" class="text-yellow-400 text-lg"></div>
+    <button id="restartBtn" class="btn">Restart</button>
+  </div>
+
+  <div id="interstitialAd" class="hidden fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 text-white text-2xl font-bold">
+    Ad - Please wait...
+  </div>
+
+  <div id="bannerAd" class="fixed bottom-0 left-0 right-0 bg-indigo-700 text-white text-center py-2 select-none">
+    Banner Ad - Buy VIP to remove ads!
+  </div>
+
+  <div id="purchasePanel" class="mt-6 w-full max-w-md bg-gray-800 rounded-lg p-4 text-white select-none">
+    <h2 class="text-xl font-semibold mb-2">In-App Purchases</h2>
+    <button id="removeAdsBtn" class="btn w-full mb-2">Remove Ads (Mock)</button>
+    <button id="buyBonusPackBtn" class="btn w-full mb-2">Buy Bonus Pack (Multiball) (Mock)</button>
+    <button id="vipModeBtn" class="btn w-full mb-2">Activate VIP Mode (Mock)</button>
+    <button id="restorePurchasesBtn" class="btn w-full">Restore Purchases (Mock)</button>
+    <div id="purchaseStatus" class="mt-2 text-green-400 font-semibold"></div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
